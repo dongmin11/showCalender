@@ -1,0 +1,44 @@
+USE [RIREKISHO] 
+GO
+
+/****** Object:  Table [dbo].[TODOリスト]    Script Date: 2022/06/11 16:46:35 ******/
+SET
+	ANSI_NULLS 
+		ON 
+GO
+
+SET
+	QUOTED_IDENTIFIER 
+		ON 
+GO
+
+CREATE TABLE [dbo].[TODOリスト] ( 
+	TODO番号 bigint identity (1, 1) NOT NULL
+	, 状態 int NOT NULL
+	, 種別 int NOT NULL
+	, タイトル varchar (50) NOT NULL
+	, 発信者番号 bigint NOT NULL
+	, 本文 varchar (2000) NOT NULL
+	, 添付ファイル１ varchar (100)
+	, 添付ファイル２ varchar (100)
+	, 添付ファイル３ varchar (100)
+	, 発信日時 datetime NOT NULL
+	, 登録ユーザー bigint NOT NULL
+	, 登録日時 datetime2 NOT NULL
+	, 更新ユーザー bigint NOT NULL
+	, 更新日時 datetime2 NOT NULL
+	,  INDEX IDX_TODOリスト_X01 UNIQUE		(発信者番号 ASC, 発信日時 ASC)
+		, CONSTRAINT [PK_TODOリスト] PRIMARY KEY CLUSTERED([TODO番号] ASC) WITH ( 
+			PAD_INDEX = OFF
+			, STATISTICS_NORECOMPUTE = OFF
+			, IGNORE_DUP_KEY = OFF
+			, ALLOW_ROW_LOCKS = 
+				ON
+				, ALLOW_PAGE_LOCKS = 
+					ON
+					, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF
+		) 
+			ON [PRIMARY]
+) 
+	ON [PRIMARY] 
+GO

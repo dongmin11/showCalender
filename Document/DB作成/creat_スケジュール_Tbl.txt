@@ -1,0 +1,37 @@
+USE [RIREKISHO]
+GO
+
+/****** Object:  Table [dbo].[スケジュール]    Script Date: 2022/06/11 21:10:25 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[スケジュール](
+	[スケジュール番号] [bigint] IDENTITY(1,1) NOT NULL,
+	[社員番号] [bigint] NOT NULL,
+	[スケジュールモード] [int] NOT NULL,
+	[開始日] [date] NOT NULL,
+	[終了日] [date] NOT NULL,
+	[開始時刻] [varchar](4) NULL,
+	[終了時刻] [varchar](4) NULL,
+	[スケジュールタイプ] [int] NOT NULL,
+	[内容] [varchar](50) NOT NULL,
+	[メモー] [varchar](500) NULL,
+	[登録ユーザー] [bigint] NOT NULL,
+	[登録日時] [datetime2](7) NOT NULL,
+	[更新ユーザー] [bigint] NOT NULL,
+	[更新日時] [datetime2](7) NOT NULL,
+	[LockVer] [int] NOT NULL,
+ CONSTRAINT [PK_スケジュール] PRIMARY KEY CLUSTERED 
+(
+	[スケジュール番号] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[スケジュール] ADD  DEFAULT ((1)) FOR [スケジュールモード]
+GO
+
+

@@ -1,0 +1,37 @@
+USE [RIREKISHO]
+GO
+
+/****** Object:  Table [dbo].[TODO明細]    Script Date: 2022/06/11 21:17:30 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TODO明細](
+	[明細番号] [bigint] IDENTITY(1,1) NOT NULL,
+	[TODO番号] [bigint] NOT NULL,
+	[受信者番号] [bigint] NOT NULL,
+	[コメント] [varchar](200) NULL,
+	[完了フラグ] [int] NOT NULL,
+	[完了日時] [datetime] NULL,
+	[開封フラグ] [int] NOT NULL,
+	[開封日時] [datetime] NULL,
+	[登録ユーザー] [bigint] NOT NULL,
+	[登録日時] [datetime2](7) NOT NULL,
+	[更新ユーザー] [bigint] NOT NULL,
+	[更新日時] [datetime2](7) NOT NULL,
+ CONSTRAINT [PK_TODO明細] PRIMARY KEY CLUSTERED 
+(
+	[明細番号] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[TODO明細] ADD  DEFAULT ((0)) FOR [完了フラグ]
+GO
+
+ALTER TABLE [dbo].[TODO明細] ADD  DEFAULT ((0)) FOR [開封フラグ]
+GO
+
+

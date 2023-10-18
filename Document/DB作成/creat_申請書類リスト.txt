@@ -1,0 +1,35 @@
+USE [RIREKISHO]
+GO
+
+/****** Object:  Table [dbo].[申請書類リスト]    Script Date: 2022/06/11 21:11:23 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[申請書類リスト](
+	[申請ID] [bigint] identity (1, 1) NOT NULL,
+	[申請者No] [bigint] NOT NULL,
+	[書類No] [varchar](500) NOT NULL,
+	[受取予定日] [date] NOT NULL,
+	[申請書コメント] [varchar](200) NULL,
+	[承認者No][bigint] NOT NULL,
+	[ステータス] [int] NOT NULL,
+	[承認者コメント] [varchar](200) NULL,
+	[登録ユーザー] [bigint] NOT NULL,
+	[登録日時] [datetime2](7) NOT NULL,
+	[更新ユーザー] [bigint] NOT NULL,
+	[更新日時] [datetime2](7) NOT NULL,
+        [LockVer] [int] NOT NULL,
+ CONSTRAINT [PK_申請書類リスト] PRIMARY KEY CLUSTERED 
+(
+	[申請ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[申請書類リスト] ADD  DEFAULT ((1)) FOR [LockVer] 
+GO
+
+

@@ -1,0 +1,26 @@
+USE [RIREKISHO]
+GO
+
+/****** Object:  Table [dbo].[メッセージマスタ]    Script Date: 2022/06/11 21:11:23 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[メッセージマスタ](
+	[メッセージID] [varchar](50) NOT NULL,
+	[メッセージ内容] [varchar](200) NOT NULL,
+	[Note] [varchar](50) NULL,
+	[登録ユーザー] [bigint] NOT NULL,
+	[登録日時] [datetime2](7) NOT NULL,
+	[更新ユーザー] [bigint] NOT NULL,
+	[更新日時] [datetime2](7) NOT NULL,
+ CONSTRAINT [PK_メッセージマスタ] PRIMARY KEY CLUSTERED 
+(
+	[メッセージID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+

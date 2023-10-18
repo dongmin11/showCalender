@@ -1,0 +1,26 @@
+#Receiver#さん　　　　　　　　　　　　　　　　　　　　　　
+
+お疲れ様です。#Senduser#です。
+標題の件、詳細は下記の通りです。
+ご確認をお願い致します。
+
+・申請資料
+①申請者
+　#ApplyUser#
+②申請書類
+  #Document#
+③受取予定日
+  #ReceiveDate#
+④コメント
+  #ApplyCmt#
+
+・承認情報
+⑤承認者
+  #Authorizer#
+⑥ステータス
+  #Status#
+⑦コメント
+  #AuthorizerCmt#
+
+以上、よろしくお願いいたします。
+
